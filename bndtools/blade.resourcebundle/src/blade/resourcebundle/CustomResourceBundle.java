@@ -5,6 +5,8 @@ import java.util.ResourceBundle;
 
 import org.osgi.service.component.annotations.*;
 
+import com.liferay.portal.kernel.language.UTF8Control;
+
 @Component(
 	immediate = true, property = {"language.id=en_US"},
 	service = ResourceBundle.class
@@ -22,6 +24,6 @@ public class CustomResourceBundle extends ResourceBundle {
 	}
 
 	private final ResourceBundle _resourceBundle = ResourceBundle.getBundle(
-		"content.Language");
+		"content.Language", UTF8Control.INSTANCE);
 
 }
