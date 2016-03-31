@@ -1,0 +1,5 @@
+Bundle-Version: 1.0.0
+Private-Package: blade.resourcebundle
+-buildpath: \
+	org.osgi.service.component.annotations;version='1.3.0'
+-sources: true
