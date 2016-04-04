@@ -47,6 +47,7 @@ import com.liferay.portal.test.rule.PersistenceTestRule;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -66,8 +67,9 @@ import java.util.Set;
  */
 @RunWith(Arquillian.class)
 public class FooPersistenceTest {
+	@ClassRule
 	@Rule
-	public final AggregateTestRule aggregateTestRule = new AggregateTestRule(new LiferayIntegrationTestRule(),
+	public static final AggregateTestRule aggregateTestRule = new AggregateTestRule(new LiferayIntegrationTestRule(),
 			PersistenceTestRule.INSTANCE,
 			new TransactionalTestRule(Propagation.REQUIRED));
 
@@ -228,7 +230,7 @@ public class FooPersistenceTest {
 	}
 
 	protected OrderByComparator<Foo> getOrderByComparator() {
-		return OrderByComparatorFactoryUtil.create("Foo", "uuid", true,
+		return OrderByComparatorFactoryUtil.create("SSB_Foo", "uuid", true,
 			"fooId", true, "groupId", true, "companyId", true, "userId", true,
 			"userName", true, "createDate", true, "modifiedDate", true,
 			"field1", true, "field2", true, "field3", true, "field4", true,
@@ -337,11 +339,9 @@ public class FooPersistenceTest {
 
 		ActionableDynamicQuery actionableDynamicQuery = FooLocalServiceUtil.getActionableDynamicQuery();
 
-		actionableDynamicQuery.setPerformActionMethod(new ActionableDynamicQuery.PerformActionMethod() {
+		actionableDynamicQuery.setPerformActionMethod(new ActionableDynamicQuery.PerformActionMethod<Foo>() {
 				@Override
-				public void performAction(Object object) {
-					Foo foo = (Foo)object;
-
+				public void performAction(Foo foo) {
 					Assert.assertNotNull(foo);
 
 					count.increment();
@@ -435,8 +435,8 @@ public class FooPersistenceTest {
 		Assert.assertTrue(Validator.equals(existingFoo.getUuid(),
 				ReflectionTestUtil.invoke(existingFoo, "getOriginalUuid",
 					new Class<?>[0])));
-		Assert.assertEquals(existingFoo.getGroupId(),
-			ReflectionTestUtil.invoke(existingFoo, "getOriginalGroupId",
+		Assert.assertEquals(Long.valueOf(existingFoo.getGroupId()),
+			ReflectionTestUtil.<Long>invoke(existingFoo, "getOriginalGroupId",
 				new Class<?>[0]));
 	}
 

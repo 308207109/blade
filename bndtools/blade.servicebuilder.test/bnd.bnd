@@ -1,7 +1,8 @@
-Bundle-Version: 1.0.0
 Bundle-Activator: blade.servicebuilder.test.Activator
+Bundle-Version: 1.0.0
+-sources: true
+
 Private-Package: blade.servicebuilder.test
 -buildpath: \
 	blade.servicebuilder.api;version=latest,\
 	osgi.core;version='6.0.0'
--sources: true

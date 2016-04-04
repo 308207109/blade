@@ -1,4 +1,5 @@
 Bundle-Version: 1.0.0
+-sources: true
+
 Private-Package: blade.portlet
 -buildpath: javax.portlet;version='2.0.0'
--sources: true

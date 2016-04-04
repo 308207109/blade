@@ -15,25 +15,35 @@
  */
 package blade.servicebuilder.test;
 
-import org.osgi.framework.BundleActivator;
-import org.osgi.framework.BundleContext;
-
+import blade.servicebuilder.model.Foo;
 import blade.servicebuilder.service.FooLocalServiceUtil;
 import blade.servicebuilder.service.FooServiceUtil;
 
+import java.util.List;
+
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
 
 public class Activator implements BundleActivator {
 
 	@Override
 	public void start(BundleContext bundleContext) throws Exception {
 		String localResult = FooLocalServiceUtil.fooLocal();
-		System.out.println("Foo LocalService Test: "+localResult);
+		System.out.println("FooLocalService Test: "+localResult);
+
 		String remoteResult = FooServiceUtil.fooRemote();
-		System.out.println("Foo RemoteService Test: "+remoteResult);
+		System.out.println("FooRemoteService Test: "+remoteResult);
+		
+		int count = FooLocalServiceUtil.getFoosCount();
+		List<Foo> fooList = FooLocalServiceUtil.getFoos(0, count);
+
+		for(Foo foo : fooList){
+			System.out.println(foo.getFooId()+" "+foo.getField1());
+		}
 	}
 
 	@Override
 	public void stop(BundleContext bundleContext) throws Exception {
-		
 	}
+
 }

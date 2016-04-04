@@ -21,12 +21,15 @@ import org.osgi.service.component.annotations.Component;
 )
 public class ExampleRenderFilter implements RenderFilter {
 
+	@Override
 	public void init(FilterConfig filterConfig) throws PortletException {
 	}
 
+	@Override
 	public void destroy() {
 	}
 
+	@Override
 	public void doFilter(RenderRequest request, RenderResponse response, FilterChain chain)
 			throws IOException, PortletException {
 		System.out.println("Before filter");
