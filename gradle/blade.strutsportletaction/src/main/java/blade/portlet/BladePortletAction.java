@@ -38,7 +38,7 @@ import org.osgi.service.component.annotations.Reference;
  * @author Kamesh Sampath
  */
 @Component(
-				immediate = true, property = {"path=/login/"},
+				immediate = true, property = {"path=/login/login"},
 				service = StrutsPortletAction.class
 )
 public class BladePortletAction extends BaseStrutsPortletAction {

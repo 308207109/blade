@@ -33,11 +33,8 @@ import org.apache.shiro.util.Factory;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 @Component(
-	immediate = true,
-	property = {
-		"key=auth.pipeline.pre"
-	},
-	service=Authenticator.class
+	immediate = true, property = {"key=auth.pipeline.pre"},
+	service = Authenticator.class
 )
 public class ShiroAuthenticatorPre implements Authenticator {
 
