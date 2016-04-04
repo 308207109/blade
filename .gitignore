@@ -3,12 +3,14 @@
 */.metadata
 */.settings
 
-*/bin
-*/bin_test
-*/enroute.zip
-*/generated
-*/reports
-*/target
+*/*/bin
+*/*/bin_test
+*/*/build
+*/*/enroute.zip
+*/*/generated
+*/*/reports
+*/*/target
+*/*/*/target
 
 *.iml
 *.ipr
@@ -17,4 +19,4 @@
 atlassian-ide-plugin.xml
 bndtools/*/.gitignore
 bndtools/*/*/.gitignore
-bndtools/cnf/cache/wrapper/lock
+bndtools/cnf/cache/
