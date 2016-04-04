@@ -6,8 +6,6 @@ Web-ContextPath: /bladestrutsaction
 	javax.portlet;version='2.0.0',\
 	javax.servlet-api;version='3.0.1',\
 	org.osgi.service.component.annotations;version='1.3.0'
--includeresource:\
-	META-INF/resources=resources
 -jsp: *.jsp,*.jspf
 -plugin.jsp: com.liferay.ant.bnd.jsp.JspAnalyzerPlugin
 -sources: true
