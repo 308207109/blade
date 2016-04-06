@@ -1,0 +1,9 @@
+Bundle-Name: Blade Core JSP Hook
+Bundle-SymbolicName: blade.corejsphook
+Bundle-Version: 1.0.0.${tstamp}
+Fragment-Host: com.liferay.login.web;bundle-version="1.0.0"
+-includeresource:\
+	META-INF/resources=src/main/resources/META-INF/jsps
+-sources: true
+
+
